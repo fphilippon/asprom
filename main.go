@@ -6,7 +6,6 @@
 // Statistics collected:
 //   aerospike_node_*: node wide statistics. e.g. memory usage, cluster state.
 //   aerospike_ns_*: per namespace. e.g. objects, migrations.
-//   aerospike_latency_*: read/write/etc latency rates.
 package main
 
 import (
@@ -23,7 +22,6 @@ const (
 	namespace       = "aerospike"
 	systemNode      = "node"
 	systemNamespace = "ns"
-	systemLatency   = "latency"
 )
 
 var (
@@ -89,7 +87,6 @@ func newAsCollector(nodeAddr string) *asCollector {
 		collectors: []collector{
 			newStatsCollector(),
 			newNSCollector(),
-			newLatencyCollector(),
 		},
 	}
 }
